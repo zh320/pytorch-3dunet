@@ -1,7 +1,7 @@
 import os
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
-from typing import Any
+from typing import Any, Literal
 
 import numpy as np
 import torch
@@ -147,7 +147,7 @@ class UNetTrainer:
         pre_trained=None,
         max_val_images=100,
         device: TorchDevice | None = None,
-        scheduler_step_per: "iteration" | "epoch" | "validation" = "validation",
+        scheduler_step_per: Literal["iteration", "epoch", "validation"] = "validation",
     ):
         self.max_val_images = max_val_images
         self.model = model
